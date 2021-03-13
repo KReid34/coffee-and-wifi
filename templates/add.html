@@ -2,17 +2,53 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% block styles %}
 {{ super() }}
-  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
 {% endblock %}
+{% block navbar %}
+
+<div class="container">
+    <nav class="navbar sticky-top navbar-expand-lg ">
+        <a class="navbar-brand" href="{{url_for('home')}}">Coffee & Wifi</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <span class="navbar-text">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('home')}}">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('cafes')}}">All Cafes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('add_cafe')}}">Add New Cafe</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Log In</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">Register</a>
+        </li>
+    </ul>
+        </div>
+        </span>
+    </nav>
+</div>
+{% endblock %}
+
 {% block title %}Add A New Cafe{% endblock %}
 
 {% block content %}
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8">
+    <div class="row">
+        <div class="col-sm-12 col-md-8">
 
-      <h1>Add a new cafe into the database</h1>
-      {{ wtf.quick_form(form, novalidate=True) }}
+            <h1>Add a new cafe into the database</h1>
+            {{ wtf.quick_form(form, novalidate=True) }}
 
 	  <p class="space-above"><a href="{{ url_for('cafes')}}">See all cafes</a></p>
 

@@ -1,21 +1,78 @@
 {% extends 'bootstrap/base.html' %}
 {% block styles %}
 {{ super() }}
-  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+
 {% endblock %}
+{% block navbar %}
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="{{url_for('home')}}">☕ ️Coffee & Wifi 💻</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="Coffee & Wifi"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <span class="navbar-nav">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('home')}}">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('cafes')}}">All Cafes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('add_cafe')}}">Add New Cafe</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Log In</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('register')}}">Register</a>
+        </li>
+    </ul>
+
+    </span>
+        </div>
+    </nav>
+</div>
+{% endblock %}
+
 
 {% block title %}Coffee and Wifi{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="styles.css">
 <div class="jumbotron text-center">
     <div class="container">
-  <h1 class="display-4">☕️ Coffee & Wifi 💻</h1>
-  <p class="lead">Want to work in a cafe but need power and wifi?</p>
-  <hr class="my-4">
-  <p>You've found the right place! Checkout my collection of cafes with data on power socket availability, wifi speed and coffee quality.</p>
-  <a class="btn btn-warning btn-lg" href="{{ url_for('cafes') }}" role="button">Show Me!</a>
-</div>
+
+        <h1 class="display-4">☕️ Coffee & Wifi 💻</h1>
+        <p class="lead">Want to work in a cafe but need power and wifi?</p>
+        <hr class="my-4">
+        <p>You've found the right place! Checkout my collection of cafes from around the world with data on power socket
+            availability, wifi speed and coffee quality.</p>
+        <a class="btn btn-warning btn-lg" href="{{ url_for('cafes') }}" role="button">Show Me!</a><br><br>
+        <a class="btn btn-link" href="{{ url_for('login') }}" role="button">Log in</a>
+
+
+        <div id="carouselCafe" class="carousel slide " data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://cdn.pixabay.com/photo/2016/02/19/11/40/coffee-shop-1209863_1280.jpg"
+                         class="d-block w-100" alt="no image">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://cdn.pixabay.com/photo/2015/10/12/15/25/bar-984527_1280.jpg" class="d-block w-100"
+                         alt="no image">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://cdn.pixabay.com/photo/2017/07/31/19/27/coffee-2560260_1280.jpg"
+                         class="d-block w-100" alt="no image">
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
 
 {% endblock %}
