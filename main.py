@@ -5,7 +5,7 @@ from flask_bootstrap import Bootstrap
 from werkzeug.security import generate_password_hash, check_password_hash
 from forms import CafeForm, LogInForm, RegisterForm
 from functools import wraps
-from tkinter import messagebox
+# from tkinter import messagebox
 
 import os
 
@@ -95,10 +95,10 @@ def cafes():
 def delete():
     cafe_id = request.args.get('id')
     cafe_to_delete = Cafes.query.get(cafe_id)
-    is_ok = messagebox.askokcancel(title=delete, message=f"Are you sure you want to delete this cafe?")
-    if is_ok:
-        db.session.delete(cafe_to_delete)
-        db.session.commit()
+    # is_ok = messagebox.askokcancel(title=delete, message=f"Are you sure you want to delete this cafe?")
+    # if is_ok:
+    #     db.session.delete(cafe_to_delete)
+    #     db.session.commit()
     return redirect(url_for('cafes'))
 
 
